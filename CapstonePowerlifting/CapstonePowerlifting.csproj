@@ -192,6 +192,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActualProgramTotal.cs" />
     <Compile Include="Models\ExpectedProgramTotal.cs" />
+    <Compile Include="Models\HistoricalWorkoutRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lift.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -317,9 +318,12 @@
     <Content Include="Views\UserProfiles\Details.cshtml" />
     <Content Include="Views\UserProfiles\Edit.cshtml" />
     <Content Include="Views\UserProfiles\Index.cshtml" />
+    <Content Include="Views\SavedWorkoutDateTimes\ViewHistoricalWorkout.cshtml" />
+    <Content Include="Views\SavedWorkoutDateTimes\GenerateExcel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

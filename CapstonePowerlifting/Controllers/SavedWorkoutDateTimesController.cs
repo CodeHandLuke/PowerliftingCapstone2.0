@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using CapstonePowerlifting.Models;
@@ -18,12 +20,19 @@ namespace CapstonePowerlifting.Controllers
         // GET: SavedWorkoutDateTimes
         public ActionResult Index()
         {
-            var savedWorkoutDateTimes = db.SavedWorkoutDateTimes.Include(s => s.User);
+			var userId = ReturnCurrentUserId();
+			var savedWorkoutDateTimes = db.SavedWorkoutDateTimes.Where(w => w.UserId == userId).ToList();
             return View(savedWorkoutDateTimes.ToList());
         }
 
-        // GET: SavedWorkoutDateTimes/Details/5
-        public ActionResult Details(int? id)
+		public ActionResult ViewHistoricalWorkout(int? id)
+		{
+			var savedWorkouts = db.SavedWorkouts.Where(s => s.SavedWorkoutDateId == id).ToList();
+			return View(savedWorkouts.ToList());
+		}
+
+		// GET: SavedWorkoutDateTimes/Details/5
+		public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -150,7 +159,10 @@ namespace CapstonePowerlifting.Controllers
 			var foundSavedWorkouts = db.SavedWorkouts.Where(w => w.UserId == userId).ToList();
 			foreach (var item in foundSavedWorkouts)
 			{
-				db.SavedWorkouts.Remove(item);
+				if (item.SavedWorkoutDateId == null)
+				{
+					db.SavedWorkouts.Remove(item);
+				}
 			}
 			db.SaveChanges();
 		}
@@ -261,6 +273,56 @@ namespace CapstonePowerlifting.Controllers
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
 			var id = currentUser.UserId;
 			return id;
+		}
+
+		HistoricalWorkoutRepository workoutRepository = new HistoricalWorkoutRepository();
+
+		public void ExportToExcel(int? id)
+		{
+			string Filename = "ExcelFrom" + DateTime.Now.ToString("mm_dd_yyy_hh_ss_tt") + ".xls";
+			string FolderPath = HttpContext.Server.MapPath("/ExcelFiles/");
+			string FilePath = Path.Combine(FolderPath, Filename);
+
+			//Step-1: Checking: the file name exist in server, if it is found then remove from server.------------------
+			if (System.IO.File.Exists(FilePath))
+			{
+				System.IO.File.Delete(FilePath);
+			}
+
+			//Step-2: Get Html Data & Converted to String----------------------------------------------------------------
+			string HtmlResult = RenderRazorViewToString("~/Views/SavedWorkoutDateTimes/GenerateExcel.cshtml", workoutRepository.GetSavedWorkouts(id));
+
+			//Step-4: Html Result store in Byte[] array------------------------------------------------------------------
+			byte[] ExcelBytes = Encoding.ASCII.GetBytes(HtmlResult);
+
+			//Step-5: byte[] array converted to file Stream and save in Server------------------------------------------- 
+			using (Stream file = System.IO.File.OpenWrite(FilePath))
+			{
+				file.Write(ExcelBytes, 0, ExcelBytes.Length);
+			}
+
+			//Step-6: Download Excel file 
+			Response.ContentType = "application/vnd.ms-excel";
+			Response.AddHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(Filename));
+			Response.WriteFile(FilePath);
+			Response.End();
+			Response.Flush();
+		}
+
+		protected string RenderRazorViewToString(string viewName, object model)
+		{
+			if (model != null)
+			{
+				ViewData.Model = model;
+			}
+			using (StringWriter sw = new StringWriter())
+			{
+				ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+				ViewContext viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+				viewResult.View.Render(viewContext, sw);
+				viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+				return sw.GetStringBuilder().ToString();
+			}
 		}
 	}
 }

@@ -138,7 +138,8 @@
         </td>*@
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { id=item.SavedWorkoutDateTimeId }) |*@
-            @Html.ActionLink("Details", "Index", "SavedWorkouts", new { id=item.SavedWorkoutDateTimeId })
+			@Html.ActionLink("Export", "ExportToExcel", new { id=item.SavedWorkoutDateTimeId }) |
+            @Html.ActionLink("Details", "ViewHistoricalWorkout", new { id=item.SavedWorkoutDateTimeId })
             @*@Html.ActionLink("Delete", "Delete", new { id=item.SavedWorkoutDateTimeId })*@
         </td>
     </tr>
