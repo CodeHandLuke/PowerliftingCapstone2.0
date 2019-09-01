@@ -1,0 +1,147 @@
+﻿@model IEnumerable<CapstonePowerlifting.Models.SavedWorkoutDateTime>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedSquatReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedSquatWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedBenchReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedBenchWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedDeadliftReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedDeadliftWeight)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ActualSquatReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedSquatReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualBenchReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedBenchReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualDeadliftReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedDeadliftReps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualSquatWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedSquatWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualBenchWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedBenchWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualDeadliftWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedDeadliftWeight)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedSquatReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedSquatWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedBenchReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedBenchWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedDeadliftReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedDeadliftWeight)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ActualSquatReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedSquatReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualBenchReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedBenchReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualDeadliftReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedDeadliftReps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualSquatWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedSquatWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualBenchWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedBenchWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualDeadliftWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedDeadliftWeight)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.SavedWorkoutDateTimeId }) |*@
+            @Html.ActionLink("Details", "Index", "SavedWorkouts", new { id=item.SavedWorkoutDateTimeId })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.SavedWorkoutDateTimeId })*@
+        </td>
+    </tr>
+}
+
+</table>
