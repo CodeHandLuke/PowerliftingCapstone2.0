@@ -28,5 +28,10 @@ namespace CapstonePowerlifting.Controllers
 
 			return View();
 		}
+
+		public ActionResult TutorialVideos()
+		{
+			return View();
+		}
 	}
 }

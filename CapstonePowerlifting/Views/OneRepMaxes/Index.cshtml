@@ -4,11 +4,13 @@
 	ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>One-rep Maxes</h2>
 
 <p>
 	@Html.ActionLink("Create New", "Create")
 </p>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0"></script>
 <table class="table">
 	<tr>
 		@*<th>
@@ -73,3 +75,7 @@
 <div><input type="button" value="Line Chart" onclick="location.href='@Url.Action("OneRepMaxProgress")'" /></div>
 <div><input type="button" value="Leaderboard" onclick="location.href='@Url.Action("Leaderboard")'" /></div>
 <div><input type="button" value="User Profile" onclick="location.href='@Url.Action("UserProfile")'" /></div>
+
+<p>
+	<div class="fb-share-button" data-href="https://72e155ee.ngrok.io/OneRepMaxes" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A44302%2FOneRepMaxes%2FShareableMax%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+</p>

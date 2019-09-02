@@ -322,6 +322,7 @@
     <Content Include="Views\SavedWorkoutDateTimes\GenerateExcel.cshtml" />
     <Content Include="Views\SavedWorkoutDateTimes\WeightBarGraph.cshtml" />
     <Content Include="Views\SavedWorkoutDateTimes\RepsBarGraph.cshtml" />
+    <Content Include="Views\Home\TutorialVideos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

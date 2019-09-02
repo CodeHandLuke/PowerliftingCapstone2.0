@@ -13,9 +13,9 @@ using Newtonsoft.Json;
 
 namespace CapstonePowerlifting.Controllers
 {
-    public class LiftsController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+	public class LiftsController : Controller
+	{
+		private ApplicationDbContext db = new ApplicationDbContext();
 
 		// GET: Lifts
 		public ActionResult Index()
@@ -52,70 +52,70 @@ namespace CapstonePowerlifting.Controllers
 
 		// GET: Lifts/Details/5
 		public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Lift lift = db.Lifts.Find(id);
-            if (lift == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lift);
-        }
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Lift lift = db.Lifts.Find(id);
+			if (lift == null)
+			{
+				return HttpNotFound();
+			}
+			return View(lift);
+		}
 
-        // GET: Lifts/Create
-        public ActionResult Create()
-        {
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName");
-            return View();
-        }
+		// GET: Lifts/Create
+		public ActionResult Create()
+		{
+			ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName");
+			return View();
+		}
 
-        // POST: Lifts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProgramId,SetOrder,WorkoutId,Exercise,OneRMPercentage,Reps,Weight,Completed,Notes,NoteText,UserId")] Lift lift)
-        {
-            if (ModelState.IsValid)
-            {
+		// POST: Lifts/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Create([Bind(Include = "ProgramId,SetOrder,WorkoutId,Exercise,OneRMPercentage,Reps,Weight,Completed,Notes,NoteText,UserId")] Lift lift)
+		{
+			if (ModelState.IsValid)
+			{
 				var appUserId = User.Identity.GetUserId();
 				var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
 				lift.UserId = currentUser.UserId;
 				db.Lifts.Add(lift);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+				db.SaveChanges();
+				return RedirectToAction("Index");
+			}
 
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName", lift.UserId);
-            return View(lift);
-        }
+			ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName", lift.UserId);
+			return View(lift);
+		}
 
-        // GET: Lifts/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Lift lift = db.Lifts.Find(id);
-            if (lift == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName", lift.UserId);
-            return View(lift);
-        }
+		// GET: Lifts/Edit/5
+		public ActionResult Edit(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Lift lift = db.Lifts.Find(id);
+			if (lift == null)
+			{
+				return HttpNotFound();
+			}
+			ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName", lift.UserId);
+			return View(lift);
+		}
 
-        // POST: Lifts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProgramId,SetOrder,WorkoutId,Exercise,OneRMPercentage,Reps,Weight,Completed,Notes,NoteText,UserId")] Lift lift)
-        {
+		// POST: Lifts/Edit/5
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Edit([Bind(Include = "ProgramId,SetOrder,WorkoutId,Exercise,OneRMPercentage,Reps,Weight,Completed,Notes,NoteText,UserId")] Lift lift)
+		{
 			if (ModelState.IsValid)
 			{
 				if (lift.NoteText == null)
@@ -138,38 +138,38 @@ namespace CapstonePowerlifting.Controllers
 
 		// GET: Lifts/Delete/5
 		public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Lift lift = db.Lifts.Find(id);
-            if (lift == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lift);
-        }
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Lift lift = db.Lifts.Find(id);
+			if (lift == null)
+			{
+				return HttpNotFound();
+			}
+			return View(lift);
+		}
 
-        // POST: Lifts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Lift lift = db.Lifts.Find(id);
-            db.Lifts.Remove(lift);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+		// POST: Lifts/Delete/5
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult DeleteConfirmed(int id)
+		{
+			Lift lift = db.Lifts.Find(id);
+			db.Lifts.Remove(lift);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				db.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
 		//This method will be used to calculate the how heavy each lift has to be using the lifter's one rep max
 		public void DetermineLiftWeights()
@@ -359,12 +359,17 @@ namespace CapstonePowerlifting.Controllers
 		{
 			var appUserId = User.Identity.GetUserId();
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
-			var lifts = db.Lifts.Where(o => o.WorkoutId == currentUser.WorkoutOfDay).ToList();
-			foreach (var item in lifts)
+			var userId = currentUser.UserId;
+			var lifts = db.Lifts.Where(o => o.WorkoutId == currentUser.WorkoutOfDay && o.UserId == userId).ToList();
+			if (lifts.Count > 1)
 			{
-				item.Completed = true;
+				foreach (var item in lifts)
+				{
+					item.Completed = true;
+				}
+				db.SaveChanges();
 			}
-			db.SaveChanges();
+
 			return RedirectToAction("Index");
 		}
 
@@ -735,6 +740,44 @@ namespace CapstonePowerlifting.Controllers
 				db.SaveChanges();
 				setOrder++;
 			}
+		}
+
+		List<int> workoutIds = new List<int>();
+
+		public void CreateListofWorkoutIds()
+		{
+			if (workoutIds.Count == 0)
+			{
+				workoutIds.Add(1);
+				workoutIds.Add(2);
+				workoutIds.Add(3);
+				workoutIds.Add(4);
+			}
+		}
+
+		//public ActionResult FilterWorkoutDays(int workoutDay)
+		//{
+		//	CreateListofWorkoutIds();
+		//	ViewBag.Workouts = workoutIds;
+		//	var userId = ReturnCurrentUserId();
+		//	var currentUser = db.UserProfiles.Where(u => u.UserId == userId).FirstOrDefault();
+		//	currentUser.WorkoutOfDay = workoutDay;
+		//	var foundSavedWorkouts = db.SavedWorkouts.Where(s => s.UserId == userId).ToList();
+		//	foreach (var item in foundSavedWorkouts)
+		//	{
+		//		if (item.SavedWorkoutDateId < 1 && item.WorkoutId >= workoutDay)
+		//		{
+		//			db.SavedWorkouts.Remove(item);
+		//		}
+		//	}
+		//}
+
+		public int ReturnCurrentUserId()
+		{
+			var appUserId = User.Identity.GetUserId();
+			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			var id = currentUser.UserId;
+			return id;
 		}
 	}
 }
