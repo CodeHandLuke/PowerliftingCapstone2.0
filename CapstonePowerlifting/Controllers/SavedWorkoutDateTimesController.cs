@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using CapstonePowerlifting.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace CapstonePowerlifting.Controllers
 {
@@ -324,5 +325,193 @@ namespace CapstonePowerlifting.Controllers
 				return sw.GetStringBuilder().ToString();
 			}
 		}
+		public int? CalculatePercentage(int? part, int? whole)
+		{
+			int? answer;
+			double fraction = (double)part / (double)whole;
+			answer = Convert.ToInt32(fraction * 100);
+			return answer;
+		}
+
+
+		//***Testing graphs, maybe move to different controller after successfully tested
+
+		public ActionResult RepsBarGraph(int savedWorkoutDateTimeId)
+		{
+			return View();
+		}
+
+		public ActionResult WeightBarGraph(int savedWorkoutDateTimeId)
+		{
+			return View();
+		}
+
+		public string CreateRepsGraph(int id)
+		{
+			List<RepsPercentageViewModel> totalRepsPercentage = new List<RepsPercentageViewModel>();
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(a => a.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			var squatReps = CalculateSquatReps(id);
+			totalRepsPercentage.Add(squatReps);
+			var benchReps = CalculateBenchReps(id);
+			totalRepsPercentage.Add(benchReps);
+			var deadReps = CalculateDeadliftReps(id);
+			totalRepsPercentage.Add(deadReps);
+
+			return JsonConvert.SerializeObject(totalRepsPercentage);
+		}
+
+		public RepsPercentageViewModel CalculateSquatReps(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(a => a.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			RepsPercentageViewModel totalRepGraph = new RepsPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(foundSavedWorkout.ActualSquatReps, foundSavedWorkout.ExpectedSquatReps);
+			totalRepGraph.Exercise = "Squat";
+			totalRepGraph.TotalReps = completedPercentage;
+			return totalRepGraph;
+		}
+
+		public RepsPercentageViewModel CalculateBenchReps(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(a => a.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			RepsPercentageViewModel totalRepGraph = new RepsPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(foundSavedWorkout.ActualBenchReps, foundSavedWorkout.ExpectedBenchReps);
+			totalRepGraph.Exercise = "Benchpress";
+			totalRepGraph.TotalReps = completedPercentage;
+			return totalRepGraph;
+		}
+
+		public RepsPercentageViewModel CalculateDeadliftReps(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(a => a.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			RepsPercentageViewModel totalRepGraph = new RepsPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(foundSavedWorkout.ActualDeadliftReps, foundSavedWorkout.ExpectedDeadliftReps);
+			totalRepGraph.Exercise = "Deadlift";
+			totalRepGraph.TotalReps = completedPercentage;
+			return totalRepGraph;
+		}
+
+		public string CreateWeightGraph(int id)
+		{
+			List<WeightPercentageViewModel> totalWeightPercentage = new List<WeightPercentageViewModel>();
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(a => a.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			var squatWeight = CalculateSquatWeight(id);
+			totalWeightPercentage.Add(squatWeight);
+			var benchWeight = CalculateBenchWeight(id);
+			totalWeightPercentage.Add(benchWeight);
+			var deadWeight = CalculateDeadliftWeight(id);
+			totalWeightPercentage.Add(deadWeight);
+
+			return JsonConvert.SerializeObject(totalWeightPercentage);
+		}
+
+		public WeightPercentageViewModel CalculateSquatWeight(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(s => s.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(Convert.ToInt32(foundSavedWorkout.ActualSquatWeight), Convert.ToInt32(foundSavedWorkout.ExpectedSquatWeight));
+			totalWeightGraph.Exercise = "Squat";
+			totalWeightGraph.TotalWeight = completedPercentage;
+			return totalWeightGraph;
+		}
+
+		public WeightPercentageViewModel CalculateBenchWeight(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(s => s.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(Convert.ToInt32(foundSavedWorkout.ActualBenchWeight), Convert.ToInt32(foundSavedWorkout.ExpectedBenchWeight));
+			totalWeightGraph.Exercise = "Benchpress";
+			totalWeightGraph.TotalWeight = completedPercentage;
+			return totalWeightGraph;
+		}
+
+		public WeightPercentageViewModel CalculateDeadliftWeight(int id)
+		{
+			var foundSavedWorkout = db.SavedWorkoutDateTimes.Where(s => s.SavedWorkoutDateTimeId == id).FirstOrDefault();
+			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+			int? completedPercentage = CalculatePercentage(Convert.ToInt32(foundSavedWorkout.ActualDeadliftWeight), Convert.ToInt32(foundSavedWorkout.ExpectedDeadliftWeight));
+			totalWeightGraph.Exercise = "Deadlift";
+			totalWeightGraph.TotalWeight = completedPercentage;
+			return totalWeightGraph;
+		}
+
+		//public string CreateRepsGraph(int? id)
+		//{
+		//	List<RepsPercentageViewModel> totalRepsPercentage = new List<RepsPercentageViewModel>();
+		//	var appUserId = User.Identity.GetUserId();
+		//	var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+		//	var userId = currentUser.UserId;
+		//	var actualReps = db.ActualProgramTotals.Where(a => a.UserId == userId).ToList();
+		//	foreach (var item in actualReps)
+		//	{
+		//		if (item.Exercise == "Squat")
+		//		{
+		//			var expectedReps = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Squat").FirstOrDefault();
+		//			int? completedPercentage = CalculatePercentage(item.Reps, expectedReps.Reps);
+		//			RepsPercentageViewModel totalRepsGraph = new RepsPercentageViewModel();
+		//			totalRepsGraph.Exercise = item.Exercise;
+		//			totalRepsGraph.TotalReps = completedPercentage;
+		//			totalRepsPercentage.Add(totalRepsGraph);
+		//		}
+		//		else if (item.Exercise == "Benchpress")
+		//		{
+		//			var expectedReps = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Benchpress").FirstOrDefault();
+		//			int? completedPercentage = CalculatePercentage(item.Reps, expectedReps.Reps);
+		//			RepsPercentageViewModel totalRepsGraph = new RepsPercentageViewModel();
+		//			totalRepsGraph.Exercise = item.Exercise;
+		//			totalRepsGraph.TotalReps = completedPercentage;
+		//			totalRepsPercentage.Add(totalRepsGraph);
+		//		}
+		//		else if (item.Exercise == "Deadlift")
+		//		{
+		//			var expectedReps = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Deadlift").FirstOrDefault();
+		//			int? completedPercentage = CalculatePercentage(item.Reps, expectedReps.Reps);
+		//			RepsPercentageViewModel totalRepsGraph = new RepsPercentageViewModel();
+		//			totalRepsGraph.Exercise = item.Exercise;
+		//			totalRepsGraph.TotalReps = completedPercentage;
+		//			totalRepsPercentage.Add(totalRepsGraph);
+		//		}
+		//	}
+		//	return JsonConvert.SerializeObject(totalRepsPercentage);
+		//}
+
+		//public string CreateWeightGraph()
+		//{
+		//	List<WeightPercentageViewModel> totalWeightPercentage = new List<WeightPercentageViewModel>();
+		//	var appUserId = User.Identity.GetUserId();
+		//	var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+		//	var userId = currentUser.UserId;
+		//	var actualWeight = db.ActualProgramTotals.Where(a => a.UserId == currentUser.UserId).ToList();
+		//	foreach (var item in actualWeight)
+		//	{
+		//		if (item.Exercise == "Squat")
+		//		{
+		//			var expectedWeight = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Squat").FirstOrDefault();
+		//			int? completedPercentage = Convert.ToInt32((item.Weight / expectedWeight.Weight) * 100);
+		//			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+		//			totalWeightGraph.Exercise = item.Exercise;
+		//			totalWeightGraph.TotalWeight = completedPercentage;
+		//			totalWeightPercentage.Add(totalWeightGraph);
+		//		}
+		//		else if (item.Exercise == "Benchpress")
+		//		{
+		//			var expectedWeight = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Benchpress").FirstOrDefault();
+		//			int? completedPercentage = Convert.ToInt32((item.Weight / expectedWeight.Weight) * 100);
+		//			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+		//			totalWeightGraph.Exercise = item.Exercise;
+		//			totalWeightGraph.TotalWeight = completedPercentage;
+		//			totalWeightPercentage.Add(totalWeightGraph);
+		//		}
+		//		else if (item.Exercise == "Deadlift")
+		//		{
+		//			var expectedWeight = db.ExpectedProgramTotals.Where(e => e.UserId == userId && e.Exercise == "Deadlift").FirstOrDefault();
+		//			int? completedPercentage = Convert.ToInt32((item.Weight / expectedWeight.Weight) * 100);
+		//			WeightPercentageViewModel totalWeightGraph = new WeightPercentageViewModel();
+		//			totalWeightGraph.Exercise = item.Exercise;
+		//			totalWeightGraph.TotalWeight = completedPercentage;
+		//			totalWeightPercentage.Add(totalWeightGraph);
+		//		}
+		//	}
+		//	return JsonConvert.SerializeObject(totalWeightPercentage);
+		//}
 	}
 }

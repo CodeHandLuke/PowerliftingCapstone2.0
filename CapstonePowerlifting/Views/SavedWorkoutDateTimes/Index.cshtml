@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Workout History</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         @*<th>
@@ -136,12 +136,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.ExpectedDeadliftWeight)
         </td>*@
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.SavedWorkoutDateTimeId }) |*@
-			@Html.ActionLink("Export", "ExportToExcel", new { id=item.SavedWorkoutDateTimeId }) |
-            @Html.ActionLink("Details", "ViewHistoricalWorkout", new { id=item.SavedWorkoutDateTimeId })
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.SavedWorkoutDateTimeId })*@
-        </td>
+	<td>
+		@*@Html.ActionLink("Edit", "Edit", new { id=item.SavedWorkoutDateTimeId }) |*@
+		@Html.ActionLink("Export", "ExportToExcel", new { id = item.SavedWorkoutDateTimeId }) |
+		@Html.ActionLink("Details", "ViewHistoricalWorkout", new { id = item.SavedWorkoutDateTimeId }) |
+		@Html.ActionLink("Reps Graph", "RepsBarGraph", new { savedWorkoutDateTimeId = item.SavedWorkoutDateTimeId }) |
+		@Html.ActionLink("Weight Graph", "WeightBarGraph", new { savedWorkoutDateTimeId = item.SavedWorkoutDateTimeId })
+		@*@Html.ActionLink("Delete", "Delete", new { id=item.SavedWorkoutDateTimeId })*@
+	</td>
     </tr>
 }
 

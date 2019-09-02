@@ -320,6 +320,8 @@
     <Content Include="Views\UserProfiles\Index.cshtml" />
     <Content Include="Views\SavedWorkoutDateTimes\ViewHistoricalWorkout.cshtml" />
     <Content Include="Views\SavedWorkoutDateTimes\GenerateExcel.cshtml" />
+    <Content Include="Views\SavedWorkoutDateTimes\WeightBarGraph.cshtml" />
+    <Content Include="Views\SavedWorkoutDateTimes\RepsBarGraph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

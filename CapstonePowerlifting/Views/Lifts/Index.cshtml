@@ -6,9 +6,9 @@
 
 <h2>My Workout</h2>
 
-<p>
+@*<p>
 	@Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
 	<tr>
 		@*<th>
@@ -87,12 +87,10 @@
 
 </table>
 
-<div>@Html.ActionLink("CompleteAllReps", "CompleteAllReps")</div>
+<div><input type="button" value="Complete All Reps" onclick="location.href='@Url.Action("CompleteAllReps", "Lifts")'" /></div>
 <div><input type="button" value="Complete Workout" onclick="location.href='@Url.Action("CompleteWorkout", "Lifts")'" /></div>
 <input type="button" value="Start Rest Timer" onclick="startTimer()" />
 <div id="counter"></div>
-<div>@Html.ActionLink("Graphs", "RepsBarGraph")</div>
-<div>@Html.ActionLink("Graphs", "WeightBarGraph")</div>
 <script>
 	function startTimer() {
 		var defaultTimer = 90, // Default amount of seconds if url variable is not found

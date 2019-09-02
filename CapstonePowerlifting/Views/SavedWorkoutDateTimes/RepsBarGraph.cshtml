@@ -12,12 +12,12 @@
 
 <script>
 	(function () {
-		//const urlParams = new URLSearchParams(window.location.search);
-		//const id = urlParams.get('SavedWorkoutDateTimeId');
+		const urlParams = new URLSearchParams(window.location.search);
+		const id = urlParams.get('savedWorkoutDateTimeId');
 
 		$.ajax({
 			type: "GET",
-			url: "CreateRepsGraph",
+			url: "CreateRepsGraph/" + id,
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function (result) {
