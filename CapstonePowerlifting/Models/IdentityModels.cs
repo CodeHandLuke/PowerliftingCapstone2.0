@@ -48,5 +48,6 @@ namespace CapstonePowerlifting.Models
 
 		public DbSet<Thread> Threads { get; set; }
 		public DbSet<Post> Posts { get; set; }
+		public DbSet<LeaderboardMax> LeaderboardMaxes { get; set; }
 	}
 }

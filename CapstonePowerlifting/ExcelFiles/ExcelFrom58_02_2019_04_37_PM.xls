@@ -1,0 +1,1436 @@
+
+
+<table class="table">
+	<tr>
+		
+		<th>
+			WorkoutId
+		</th>
+		<th>
+			Date
+		</th>
+		<th>
+			Exercise
+		</th>
+		<th>
+			% of 1RM
+		</th>
+		<th>
+			Reps
+		</th>
+		<th>
+			Weight(kg)
+		</th>
+		<th>
+			NoteText
+		</th>
+		
+		<th></th>
+	</tr>
+
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				90
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				90
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				90
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				90
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				90
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				126
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				126
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				126
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				126
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				1
+			</td>
+			<td>
+				9/2/2019 4:55:28 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				126
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				110
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				110
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				110
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				110
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				5
+			</td>
+			<td>
+				110
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				6
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				6
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				6
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				6
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				6
+			</td>
+			<td>
+				67.5
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift^Knee
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				154
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift^Knee
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				154
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift^Knee
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				154
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				2
+			</td>
+			<td>
+				9/2/2019 4:57:13 PM
+			</td>
+			<td>
+				Deadlift^Knee
+			</td>
+			<td>
+				70
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				154
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				108
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				108
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				108
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				108
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				108
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				144
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				144
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				144
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				144
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Squat
+			</td>
+			<td>
+				80
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				144
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				101.25
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				101.25
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				101.25
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				101.25
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				3
+			</td>
+			<td>
+				9/2/2019 4:57:20 PM
+			</td>
+			<td>
+				Benchpress
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				101.25
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Def Deadlift
+			</td>
+			<td>
+				60
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				132
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Def Deadlift
+			</td>
+			<td>
+				60
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				132
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Def Deadlift
+			</td>
+			<td>
+				60
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				132
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Def Deadlift
+			</td>
+			<td>
+				60
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				132
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Def Deadlift
+			</td>
+			<td>
+				60
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				132
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Rackpull
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				165
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Rackpull
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				165
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Rackpull
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				165
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Rackpull
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				165
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+		<tr>
+			
+			<td>
+				4
+			</td>
+			<td>
+				9/2/2019 4:57:24 PM
+			</td>
+			<td>
+				Rackpull
+			</td>
+			<td>
+				75
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				165
+			</td>
+			<td>
+				
+			</td>
+			
+			
+		</tr>
+
+</table>

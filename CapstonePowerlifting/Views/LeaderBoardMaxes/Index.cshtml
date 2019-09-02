@@ -1,14 +1,14 @@
-﻿@model IEnumerable<CapstonePowerlifting.Models.OneRepMaxLeaderboardViewModel>
+﻿@model IEnumerable<CapstonePowerlifting.Models.LeaderboardMax>
 
 @{
-    ViewBag.Title = "Leaderboard";
+    ViewBag.Title = "Index";
 }
 
 <h2>Leaderboard</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -35,6 +35,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Wilks)
         </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </th>*@
         <th></th>
     </tr>
 
@@ -65,9 +68,12 @@
             @Html.DisplayFor(modelItem => item.Wilks)
         </td>
         @*<td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.ApplicationId)
+        </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LeaderboardMaxId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LeaderboardMaxId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LeaderboardMaxId })
         </td>*@
     </tr>
 }

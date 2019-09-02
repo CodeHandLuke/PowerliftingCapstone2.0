@@ -214,7 +214,7 @@ namespace CapstonePowerlifting.Controllers
 			var appUserId = User.Identity.GetUserId();
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
 			var userId = currentUser.UserId;
-			var completedSetCount = db.Lifts.Where(o => o.WorkoutId == currentUser.WorkoutOfDay && o.Completed == true).Count();
+			var completedSetCount = db.Lifts.Where(o => o.UserId == userId && o.WorkoutId == currentUser.WorkoutOfDay && o.Completed == true).Count();
 			var liftsCount = db.Lifts.Where(l => l.UserId == userId).Count();
 			if (liftsCount > 1)
 			{
@@ -240,7 +240,7 @@ namespace CapstonePowerlifting.Controllers
 				}
 				else if (completedSetCount < 1)
 				{
-					MessageBox.Show("Please remember to check the 'Complete' box when you finish your set!");
+					MessageBox.Show("You haven't completed enough sets to complete this workout!");
 					return RedirectToAction("Index");
 				}
 			}

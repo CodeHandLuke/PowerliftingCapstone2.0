@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ActualProgramTotalsController.cs" />
     <Compile Include="Controllers\ExpectedProgramTotalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeaderBoardMaxesController.cs" />
     <Compile Include="Controllers\LiftsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OneRepMaxesController.cs" />
@@ -188,12 +189,21 @@
     <Compile Include="Migrations\201908301922531_InitialMigration.Designer.cs">
       <DependentUpon>201908301922531_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909022104040_AddedLeaderboardMax.cs" />
+    <Compile Include="Migrations\201909022104040_AddedLeaderboardMax.Designer.cs">
+      <DependentUpon>201909022104040_AddedLeaderboardMax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909022115534_FixedLeaderboard.cs" />
+    <Compile Include="Migrations\201909022115534_FixedLeaderboard.Designer.cs">
+      <DependentUpon>201909022115534_FixedLeaderboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActualProgramTotal.cs" />
     <Compile Include="Models\ExpectedProgramTotal.cs" />
     <Compile Include="Models\HistoricalWorkoutRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LeaderboardMax.cs" />
     <Compile Include="Models\Lift.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OneRepMax.cs" />
@@ -310,7 +320,6 @@
     <Content Include="Views\Lifts\DailyWorkout.cshtml" />
     <Content Include="Views\Lifts\RepsBarGraph.cshtml" />
     <Content Include="Views\Lifts\WeightBarGraph.cshtml" />
-    <Content Include="Views\OneRepMaxes\Leaderboard.cshtml" />
     <Content Include="Views\OneRepMaxes\OneRepMaxProgress.cshtml" />
     <Content Include="Views\OneRepMaxes\ShareableMax.cshtml" />
     <Content Include="Views\UserProfiles\Create.cshtml" />
@@ -323,6 +332,7 @@
     <Content Include="Views\SavedWorkoutDateTimes\WeightBarGraph.cshtml" />
     <Content Include="Views\SavedWorkoutDateTimes\RepsBarGraph.cshtml" />
     <Content Include="Views\Home\TutorialVideos.cshtml" />
+    <Content Include="Views\LeaderBoardMaxes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -344,6 +354,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908301922531_InitialMigration.resx">
       <DependentUpon>201908301922531_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909022104040_AddedLeaderboardMax.resx">
+      <DependentUpon>201909022104040_AddedLeaderboardMax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909022115534_FixedLeaderboard.resx">
+      <DependentUpon>201909022115534_FixedLeaderboard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

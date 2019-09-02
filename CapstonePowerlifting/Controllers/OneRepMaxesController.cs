@@ -30,7 +30,7 @@ namespace CapstonePowerlifting.Controllers
 				return RedirectToAction("Create", "UserProfiles");
 			}
 			var oneRepMaxes = db.OneRepMaxes.Where(o => o.UserId == currentUser.UserId);
-			return View(oneRepMaxes.ToList());
+			return View(oneRepMaxes.OrderBy(m => m.Date).ToList());
 		}
 
         // GET: OneRepMaxes/Details/5
@@ -73,12 +73,15 @@ namespace CapstonePowerlifting.Controllers
 				RemovePreviousLifts();
 				RemovePreviousSavedWorkouts();
 				oneRepMax.Date = DateTime.Now;
+				var monthCheck = oneRepMax.Date.ToString("MM");
+				CheckPreviousMaxes(Convert.ToInt32(monthCheck));
 				oneRepMax.Total = oneRepMax.Squat + oneRepMax.Bench + oneRepMax.Deadlift;
 				var wilksCoefficient = CalcuateWilks(oneRepMax.Total);
 				oneRepMax.Wilks = Math.Round(wilksCoefficient, 2);
 				currentUser.Wilks = oneRepMax.Wilks;
 				oneRepMax.UserId = currentUser.UserId;
 				db.OneRepMaxes.Add(oneRepMax);
+				currentUser.WorkoutOfDay = 1;
 				db.SaveChanges();
 				CreateLeaderboardMaxes(currentUser.UserId);
 				return RedirectToAction("InitializeWorkout", "Lifts");
@@ -87,6 +90,21 @@ namespace CapstonePowerlifting.Controllers
             ViewBag.UserId = new SelectList(db.UserProfiles, "UserId", "FirstName", oneRepMax.UserId);
             return View(oneRepMax);
         }
+
+		public void CheckPreviousMaxes(int month)
+		{
+			var userId = ReturnCurrentUserId();
+			var foundMaxes = db.OneRepMaxes.Where(m => m.UserId == userId).ToList();
+			foreach (var item in foundMaxes)
+			{
+				var monthCheck = item.Date.ToString("MM");
+				if (Convert.ToInt32(monthCheck) == month)
+				{
+					db.OneRepMaxes.Remove(item);
+				}
+			}
+			db.SaveChanges();
+		}
 
 		public void RemovePreviousSavedWorkouts()
 		{
@@ -247,7 +265,7 @@ namespace CapstonePowerlifting.Controllers
 		{
 			var listOneRepMax = db.OneRepMaxes.Where(m => m.UserId == id).ToList();
 			var foundOneRepMax = listOneRepMax.LastOrDefault();
-			OneRepMaxLeaderboardViewModel oneRepMax = new OneRepMaxLeaderboardViewModel();
+			LeaderboardMax oneRepMax = new LeaderboardMax();
 			oneRepMax.UserName = ReturnUserName(id);
 			oneRepMax.Age = ReturnUserAge(id);
 			oneRepMax.Weight = ReturnUserWeight(id);
@@ -256,12 +274,14 @@ namespace CapstonePowerlifting.Controllers
 			oneRepMax.Deadlift = foundOneRepMax.Deadlift;
 			oneRepMax.Total = foundOneRepMax.Total;
 			oneRepMax.Wilks = foundOneRepMax.Wilks;
-			oneRepMaxLeaderboard.Add(oneRepMax);
+			oneRepMax.UserId = id;
+			db.LeaderboardMaxes.Add(oneRepMax);
+			db.SaveChanges();
 		}
 
 		public ActionResult Leaderboard()
 		{
-			return View(oneRepMaxLeaderboard.OrderByDescending(o => o.Wilks));
+			return RedirectToAction("Index", "LeaderBoardMaxes");
 		}
 
 		public int ReturnUserAge(int id)
