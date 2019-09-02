@@ -55,10 +55,12 @@ namespace CapstonePowerlifting.Controllers
             return View();
         }
 
-        // POST: OneRepMaxes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		List<OneRepMaxLeaderboardViewModel> oneRepMaxLeaderboard = new List<OneRepMaxLeaderboardViewModel>();
+
+		// POST: OneRepMaxes/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OneRepMaxId,Squat,Bench,Deadlift")] OneRepMax oneRepMax)
         {
@@ -78,6 +80,7 @@ namespace CapstonePowerlifting.Controllers
 				oneRepMax.UserId = currentUser.UserId;
 				db.OneRepMaxes.Add(oneRepMax);
 				db.SaveChanges();
+				CreateLeaderboardMaxes(currentUser.UserId);
 				return RedirectToAction("InitializeWorkout", "Lifts");
 			}
 
@@ -240,12 +243,46 @@ namespace CapstonePowerlifting.Controllers
             return RedirectToAction("Index");
         }
 
+		public void CreateLeaderboardMaxes(int id)
+		{
+			var listOneRepMax = db.OneRepMaxes.Where(m => m.UserId == id).ToList();
+			var foundOneRepMax = listOneRepMax.LastOrDefault();
+			OneRepMaxLeaderboardViewModel oneRepMax = new OneRepMaxLeaderboardViewModel();
+			oneRepMax.UserName = ReturnUserName(id);
+			oneRepMax.Age = ReturnUserAge(id);
+			oneRepMax.Weight = ReturnUserWeight(id);
+			oneRepMax.Squat = foundOneRepMax.Squat;
+			oneRepMax.Bench = foundOneRepMax.Bench;
+			oneRepMax.Deadlift = foundOneRepMax.Deadlift;
+			oneRepMax.Total = foundOneRepMax.Total;
+			oneRepMax.Wilks = foundOneRepMax.Wilks;
+			oneRepMaxLeaderboard.Add(oneRepMax);
+		}
+
 		public ActionResult Leaderboard()
 		{
-			var appUserId = User.Identity.GetUserId();
-			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
-			var oneRepMaxes = db.OneRepMaxes.Include(o => o.User);
-			return View(oneRepMaxes.ToList());
+			return View(oneRepMaxLeaderboard.OrderByDescending(o => o.Wilks));
+		}
+
+		public int ReturnUserAge(int id)
+		{
+			var user = db.UserProfiles.Where(u => u.UserId == id).FirstOrDefault();
+			var age = user.Age;
+			return age;
+		}
+
+		public double ReturnUserWeight(int id)
+		{
+			var user = db.UserProfiles.Where(u => u.UserId == id).FirstOrDefault();
+			var weight = user.Weight;
+			return weight;
+		}
+
+		public string ReturnUserName(int id)
+		{
+			var currentUser = db.UserProfiles.Where(u => u.UserId == id).FirstOrDefault();
+			var userName = $"{currentUser.FirstName} {currentUser.LastName}";
+			return userName;
 		}
 
 		protected override void Dispose(bool disposing)

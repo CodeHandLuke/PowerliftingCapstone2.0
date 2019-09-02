@@ -133,4 +133,20 @@ namespace CapstonePowerlifting.Models
 		public string Name { get; set; }
 		public List<OneRepMaxValueViewModel> OneRepMaxValues { get; set; }
 	}
+
+	public class OneRepMaxLeaderboardViewModel
+	{
+		public string UserName { get; set; }
+		public int Age { get; set; }
+		public double Weight { get; set; }
+		[Display(Name = "Squat(kg)")]
+		public double Squat { get; set; }
+		[Display(Name = "Bench(kg)")]
+		public double Bench { get; set; }
+		[Display(Name = "Deadlift(kg)")]
+		public double Deadlift { get; set; }
+		[Display(Name = "Total(kg)")]
+		public double Total { get; set; }
+		public double Wilks { get; set; }
+	}
 }
