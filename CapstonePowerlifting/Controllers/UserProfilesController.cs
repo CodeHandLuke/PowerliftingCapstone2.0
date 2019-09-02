@@ -17,8 +17,9 @@ namespace CapstonePowerlifting.Controllers
 		// GET: UserProfiles
 		public ActionResult Index()
 		{
-			var userProfiles = db.UserProfiles.Include(u => u.ApplicationUser);
-			return View(userProfiles.ToList());
+			var appUserId = User.Identity.GetUserId();
+			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).ToList();
+			return View(currentUser.ToList());
 		}
 
 		// GET: UserProfiles/Details/5

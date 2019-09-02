@@ -21,7 +21,15 @@ namespace CapstonePowerlifting.Controllers
 		public ActionResult Index()
 		{
 			var appUserId = User.Identity.GetUserId();
+			if (appUserId == null)
+			{
+				return RedirectToAction("Login", "Account");
+			}
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			if (currentUser == null)
+			{
+				return RedirectToAction("Create", "UserProfiles");
+			}
 			var oneRepMaxCount = db.OneRepMaxes.Where(m => m.UserId == currentUser.UserId).Count();
 			if (oneRepMaxCount < 1)
 			{
@@ -205,32 +213,42 @@ namespace CapstonePowerlifting.Controllers
 		{
 			var appUserId = User.Identity.GetUserId();
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			var userId = currentUser.UserId;
 			var completedSetCount = db.Lifts.Where(o => o.WorkoutId == currentUser.WorkoutOfDay && o.Completed == true).Count();
-			if (completedSetCount > 1)
+			var liftsCount = db.Lifts.Where(l => l.UserId == userId).Count();
+			if (liftsCount > 1)
 			{
-				if (currentUser.WorkoutOfDay < 4)
+				if (completedSetCount > 1)
 				{
-					SaveWorkout(currentUser.UserId, currentUser.WorkoutOfDay);
-					SaveProgramTotals(currentUser.UserId, currentUser.WorkoutOfDay);
-					currentUser.WorkoutOfDay++;
-					db.SaveChanges();
+					if (currentUser.WorkoutOfDay < 4)
+					{
+						SaveWorkout(currentUser.UserId, currentUser.WorkoutOfDay);
+						SaveProgramTotals(currentUser.UserId, currentUser.WorkoutOfDay);
+						currentUser.WorkoutOfDay++;
+						db.SaveChanges();
+						return RedirectToAction("Index");
+					}
+
+					else
+					{
+						SaveWorkout(currentUser.UserId, currentUser.WorkoutOfDay);
+						SaveProgramTotals(currentUser.UserId, currentUser.WorkoutOfDay);
+						currentUser.WorkoutOfDay = 1;
+						db.SaveChanges();
+						return RedirectToAction("SavedCompletedWorkout", "SavedWorkoutDateTimes");
+					}
+				}
+				else if (completedSetCount < 1)
+				{
+					MessageBox.Show("Please remember to check the 'Complete' box when you finish your set!");
 					return RedirectToAction("Index");
 				}
-
-				else
-				{
-					SaveWorkout(currentUser.UserId, currentUser.WorkoutOfDay);
-					SaveProgramTotals(currentUser.UserId, currentUser.WorkoutOfDay);
-					currentUser.WorkoutOfDay = 1;
-					db.SaveChanges();
-					return RedirectToAction("SavedCompletedWorkout", "SavedWorkoutDateTimes");
-				}
 			}
-			else if (completedSetCount < 1)
+			else if (liftsCount < 1)
 			{
-				MessageBox.Show("Please remember to check the 'Complete' box when you finish your set!");
-				return RedirectToAction("Index");
+				return RedirectToAction("Create", "OneRepMaxes");
 			}
+
 			return RedirectToAction("Index");
 		}
 

@@ -18,8 +18,18 @@ namespace CapstonePowerlifting.Controllers
         // GET: Threads
         public ActionResult Index()
         {
-            return View(db.Threads.ToList());
-        }
+			var appUserId = User.Identity.GetUserId();
+			if (appUserId == null)
+			{
+				return RedirectToAction("Login", "Account");
+			}
+			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			if (currentUser == null)
+			{
+				return RedirectToAction("Create", "UserProfiles");
+			}
+			return View(db.Threads.OrderByDescending(t => t.LastPost).ToList());
+		}
 
         // GET: Threads/Details/5
         public ActionResult Details(int? id)
@@ -69,7 +79,7 @@ namespace CapstonePowerlifting.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ThreadId,DateTime,PostedBy,ThreadTitle,Posts,LastPost")] Thread thread)
+        public ActionResult Create([Bind(Include = "ThreadId,ThreadTitle")] Thread thread)
         {
 			if (ModelState.IsValid)
 			{

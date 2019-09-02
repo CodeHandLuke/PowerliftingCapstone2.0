@@ -20,7 +20,15 @@ namespace CapstonePowerlifting.Controllers
         public ActionResult Index()
         {
 			var appUserId = User.Identity.GetUserId();
+			if (appUserId == null)
+			{
+				return RedirectToAction("Login", "Account");
+			}
 			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			if (currentUser == null)
+			{
+				return RedirectToAction("Create", "UserProfiles");
+			}
 			var oneRepMaxes = db.OneRepMaxes.Where(o => o.UserId == currentUser.UserId);
 			return View(oneRepMaxes.ToList());
 		}
@@ -343,6 +351,11 @@ namespace CapstonePowerlifting.Controllers
 				listOneRepMaxes.Add(oneRepMaxDeadlift);
 			}
 			return listOneRepMaxes;
+		}
+
+		public ActionResult UserProfile()
+		{
+			return RedirectToAction("Index", "UserProfiles");
 		}
 	}
 }
