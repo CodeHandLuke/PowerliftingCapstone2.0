@@ -7,68 +7,74 @@
 <h2>Details</h2>
 
 <div>
-    <h4>OneRepMax</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.FirstName)
-        </dt>
+	<h4>OneRepMax</h4>
+	<hr />
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0"></script>
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.User.FirstName)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.FirstName)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.User.FirstName)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Date)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Squat)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Squat)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Squat)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Squat)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bench)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Bench)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bench)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Bench)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Deadlift)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Deadlift)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Deadlift)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Deadlift)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Total)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Total)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Wilks)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Wilks)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Wilks)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Wilks)
+		</dd>
 
-    </dl>
+	</dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.OneRepMaxId }) |
     @Html.ActionLink("Back to List", "Index")
+</p>
+
+<p>
+	<div class="fb-share-button" data-href="https://localhost:44349/@Model.OneRepMaxId" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A44302%2FOneRepMaxes%2FShareableMax%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 </p>

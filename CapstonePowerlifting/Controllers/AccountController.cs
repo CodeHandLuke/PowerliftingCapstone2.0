@@ -449,7 +449,7 @@ namespace CapstonePowerlifting.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Lifts");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

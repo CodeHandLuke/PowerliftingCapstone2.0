@@ -307,7 +307,7 @@ namespace CapstonePowerlifting.Controllers
 						db.SaveChanges();
 					}
 				}
-				else if (item.Exercise == "Deadlift")
+				else if (item.Exercise == "Deadlift" || item.Exercise == "Deadlift^Knee" || item.Exercise == "Def Deadlift")
 				{
 					var deadTotalsCount = db.ActualProgramTotals.Where(s => s.Exercise == "Deadlift" && s.UserId == userId).Count();
 					if (deadTotalsCount < 1)
@@ -429,7 +429,7 @@ namespace CapstonePowerlifting.Controllers
 						db.SaveChanges();
 					}
 				}
-				else if (item.Exercise == "Deadlift")
+				else if (item.Exercise == "Deadlift" || item.Exercise == "Deadlift^Knee" || item.Exercise == "Def Deadlift")
 				{
 					var deadTotalsCount = db.ExpectedProgramTotals.Where(s => s.Exercise == "Deadlift" && s.UserId == userId).Count();
 					if (deadTotalsCount < 1)

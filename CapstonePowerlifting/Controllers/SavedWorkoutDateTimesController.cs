@@ -21,6 +21,16 @@ namespace CapstonePowerlifting.Controllers
         // GET: SavedWorkoutDateTimes
         public ActionResult Index()
         {
+			var appUserId = User.Identity.GetUserId();
+			if (appUserId == null)
+			{
+				return RedirectToAction("Login", "Account");
+			}
+			var currentUser = db.UserProfiles.Where(u => u.ApplicationId == appUserId).FirstOrDefault();
+			if (currentUser == null)
+			{
+				return RedirectToAction("Create", "UserProfiles");
+			}
 			var userId = ReturnCurrentUserId();
 			var savedWorkoutDateTimes = db.SavedWorkoutDateTimes.Where(w => w.UserId == userId).ToList();
             return View(savedWorkoutDateTimes.ToList());
