@@ -344,8 +344,6 @@ namespace CapstonePowerlifting.Controllers
 		}
 
 
-		//***Testing graphs, maybe move to different controller after successfully tested
-
 		public ActionResult RepsBarGraph(int savedWorkoutDateTimeId)
 		{
 			return View();
